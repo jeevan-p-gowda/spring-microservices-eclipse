@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class UserController {
 	@GetMapping
-	public String getUsers() {
-		return "HTTPS GET Request";
+	public String getUsers(@RequestParam(value="page") int pageNo,@RequestParam(value="limit")int limitNo) {
+		return "HTTPS GET Request was sent for page:"+ pageNo +"and limit is:" + limitNo;
 	}
 	@GetMapping(path="/{userID}")
 	public String getUser(@PathVariable String userID) {
